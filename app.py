@@ -6,7 +6,15 @@ import os
 app = Flask(__name__)
 
 # Charger le fichier Excel
-file_path = 'v4.xlsx'
+file_path = os.path.join(os.path.dirname(__file__), 'v4.xlsx')
+try:
+    info_kits_df = pd.read_excel(file_path, sheet_name='Infos Kits', engine='openpyxl')
+    positions_stats_df = pd.read_excel(file_path, sheet_name='Positions et Stats', engine='openpyxl')
+except FileNotFoundError:
+    print(f"Error: File {file_path} not found.")
+except BadZipFile:
+    print(f"Error: Corrupted file {file_path}.")
+
 info_kits_df = pd.read_excel(file_path, sheet_name='Infos Kits', engine='openpyxl')
 positions_stats_df = pd.read_excel(file_path, sheet_name='Positions et Stats', engine='openpyxl')
 
