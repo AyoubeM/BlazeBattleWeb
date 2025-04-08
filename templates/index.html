@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot Discord Web</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <h1>Interface Web - Bot Discord</h1>
+
+  <div class="section">
+    <h2>📋 Liste des joueurs</h2>
+    <button onclick="getPlayers()">Afficher tous les joueurs</button>
+    <div id="players"></div>
+  </div>
+
+  <div class="section">
+    <h2>🔍 Fiche d'un personnage</h2>
+    <input type="text" id="ficheName" placeholder="Nom du personnage">
+    <button onclick="getFiche()">Voir la fiche</button>
+  </div>
+
+  <div class="section">
+    <h2>📊 Statistiques d'un personnage</h2>
+    <input type="text" id="statName" placeholder="Nom du personnage">
+    <button onclick="getStat()">Voir les stats</button>
+  </div>
+
+  <div class="section">
+    <h2>💰 Calcul de fragments</h2>
+    <input type="number" id="fragCount" placeholder="Nombre de fragments">
+    <button onclick="calculateCost()">Calculer le coût</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
