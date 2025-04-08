@@ -32,7 +32,7 @@ def stat():
         return jsonify({'error': 'Stats non trouvées'}), 404
     return jsonify(row.iloc[0].to_dict())
 
-@app.route('/calculate')
+@app.route('/calculate') 
 def calculate():
     fragments = int(request.args.get('fragments'))
     total_cost = 0
