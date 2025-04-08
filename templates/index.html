@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bot Discord Web</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-  <h1>Interface Web - Bot Discord</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blaze Battle - Gestion des Personnages</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blaze Battle - Gestion des Personnages</h1>
 
-  <div class="section">
-    <h2>📋 Liste des joueurs</h2>
-    <button onclick="getPlayers()">Afficher tous les joueurs</button>
-    <div id="players"></div>
-  </div>
+      <div class="section">
+        <h2>📋 Liste des joueurs</h2>
+        <button onclick="loadPlayers()">Afficher tous les joueurs</button>
+        <div id="players" class="player-list"></div>
+      </div>
 
-  <div class="section">
-    <h2>🔍 Fiche d'un personnage</h2>
-    <input type="text" id="ficheName" placeholder="Nom du personnage">
-    <button onclick="getFiche()">Voir la fiche</button>
-  </div>
+      <div class="section">
+        <h2>🔍 Fiche d'un personnage</h2>
+        <input type="text" id="ficheName" placeholder="Nom du personnage" />
+        <button onclick="getFiche()">Voir la fiche</button>
+        <div id="ficheResult" class="result"></div>
+      </div>
 
-  <div class="section">
-    <h2>📊 Statistiques d'un personnage</h2>
-    <input type="text" id="statName" placeholder="Nom du personnage">
-    <button onclick="getStat()">Voir les stats</button>
-  </div>
+      <div class="section">
+        <h2>📊 Statistiques d'un personnage</h2>
+        <input type="text" id="statName" placeholder="Nom du personnage" />
+        <button onclick="getStats()">Voir les stats</button>
+        <div id="statsResult" class="result"></div>
+      </div>
 
-  <div class="section">
-    <h2>💰 Calcul de fragments</h2>
-    <input type="number" id="fragCount" placeholder="Nombre de fragments">
-    <button onclick="calculateCost()">Calculer le coût</button>
-  </div>
+      <div class="section">
+        <h2>🔄 Comparer les kits</h2>
+        <div class="input-group">
+          <input type="text" id="kitName1" placeholder="Premier personnage" />
+          <input type="text" id="kitName2" placeholder="Deuxième personnage" />
+        </div>
+        <button onclick="compareKits()">Comparer les kits</button>
+        <div id="kitComparisonResult" class="result"></div>
+      </div>
 
-  <div id="result"></div>
+      <div class="section">
+        <h2>📈 Comparer les statistiques</h2>
+        <div class="input-group">
+          <input type="text" id="statName1" placeholder="Premier personnage" />
+          <input type="text" id="statName2" placeholder="Deuxième personnage" />
+        </div>
+        <button onclick="compareStats()">Comparer les stats</button>
+        <div id="statComparisonResult" class="result"></div>
+      </div>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+      <div class="section">
+        <h2>💰 Calcul de fragments</h2>
+        <input type="number" id="fragCount" placeholder="Nombre de fragments" />
+        <button onclick="calculateCost()">Calculer le coût</button>
+        <div id="costResult" class="result"></div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
 </html>
